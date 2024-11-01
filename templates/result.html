@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Результаты{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Ваш результат</h1>
+    <p class="text-center">Вы набрали {{ score }} из {{ total_questions }} баллов.</p>
+    <a href="/" class="btn btn-primary w-100">Пройти снова</a>
+{% endblock %}

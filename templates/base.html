@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Приложение{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #007bff;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        /* Темная тема */
+        body.dark-theme {
+            --background-color: #222222;
+            --text-color: #ffffff;
+            --accent-color: #00a7ff;
+        }
+
+        a {
+            color: var(--accent-color);
+        }
+
+        /* Кнопка переключения темы */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body class="{% if session['theme'] == 'dark' %}dark-theme{% endif %}">
+    <!-- Кнопка переключения темы -->
+    <form method="POST" action="{{ url_for('toggle_theme') }}">
+        <button type="submit" class="btn btn-outline-secondary theme-toggle">Сменить тему</button>
+    </form>
+
+    <div class="container mt-5">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Выбор уровня сложности{% endblock %}
+
+{% block content %}
+    <div class="text-center">
+        <h1>Выберите уровень сложности</h1>
+        <form method="POST">
+            <button type="submit" name="level" value="junior" class="btn btn-primary m-2">Junior</button>
+            <button type="submit" name="level" value="middle" class="btn btn-warning m-2">Middle</button>
+            <button type="submit" name="level" value="senior" class="btn btn-danger m-2">Senior</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Тест на знание Python{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Вопрос {{ question_index + 1 }}</h1>
+    <form method="POST">
+        <h5>{{ question.question }}</h5>
+        {% for option in question.options %}
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="option" value="{{ option }}" required>
+                <label class="form-check-label">{{ option }}</label>
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary w-100 mt-3">Следующий</button>
+    </form>
+{% endblock %}
